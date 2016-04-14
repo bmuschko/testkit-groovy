@@ -1,10 +1,9 @@
 import org.gradle.testkit.runner.GradleRunner
-import static org.gradle.testkit.runner.TaskOutcome.*
 import org.junit.Rule
 import org.junit.rules.TemporaryFolder
 import spock.lang.Specification
 
-class MyPlugin extends Specification {
+class MyPluginTest extends Specification {
     
     @Rule TemporaryFolder testProjectDir = new TemporaryFolder()
     
@@ -17,10 +16,11 @@ class MyPlugin extends Specification {
         """
 
         when:
-        def result = GradleRunner.create()
+        GradleRunner.create()
             .withProjectDir(testProjectDir.root)
             .withArguments('tasks')
             .withPluginClasspath()
+            .withDebug(true)
             .build()
 
         then:

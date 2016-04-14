@@ -1,6 +1,7 @@
 plugins {
     id "org.gradle.java-gradle-plugin"
     id "org.gradle.groovy"
+    id "idea"
 }
 
 repositories {
